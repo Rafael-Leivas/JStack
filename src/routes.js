@@ -6,4 +6,14 @@ module.exports = [
     method: 'GET',
     hendler: UserController.listUsers,
   },
+  {
+    endpoint: '/users/:id',
+    method: 'GET',
+    hendler: UserController.getUserById,
+  },
+  {
+    endpoint: '/users',
+    method: 'POST',
+    hendler: UserController.createUser,
+  },
 ]

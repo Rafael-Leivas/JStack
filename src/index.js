@@ -1,6 +1,7 @@
 const http = require('http')
 const { URL } = require('url')
 
+const bodyParser = require('./helepers/bodyParse')
 const routes = require('./routes')
 
 const server = http.createServer((request, response)=> {
@@ -31,7 +32,12 @@ const server = http.createServer((request, response)=> {
       response.end(JSON.stringify(body))
     }
 
-    route.hendler(request, response)
+    if(['POST', 'PUT', 'PATCH'].includes(request.method)) {
+      bodyParser(request, () => route.hendler(request, response)
+      )
+    } else{
+      route.hendler(request, response)
+    }
   } else{
     response.writeHead(404, { 'Content-type': 'text/html'})
     response.end(`Cannot ${request.method} ${parsedUrl.pathname}`)

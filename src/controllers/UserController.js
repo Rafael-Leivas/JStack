@@ -28,6 +28,16 @@ module.exports = {
   },
 
   createUser(request, response){
-    response.send(200, { ok: true })
+    const {body} = request
+    const lastUsertId = users[users.length - 1].id
+      const newUser = {
+        id: lastUsertId + 1,
+        name: body.name,
+      }
+
+      users.push(newUser)
+
+      response.send(200, newUser)
+
   },
 }

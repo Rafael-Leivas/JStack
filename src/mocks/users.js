@@ -1,14 +1,14 @@
-module.exports=[
+module.exports = [
   {
     id: 1,
-    name:'Matheus'
+    name: 'Mateus',
   },
   {
     id: 2,
-    name:'Rafael'
+    name: 'Rafael',
   },
   {
     id: 3,
-    name:'José'
-  }
+    name: 'João',
+  },
 ]
